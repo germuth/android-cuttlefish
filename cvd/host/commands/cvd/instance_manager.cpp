@@ -162,8 +162,8 @@ Result<void> InstanceManager::SetInstanceGroup(
   using InstanceInfo = selector::InstanceDatabase::InstanceInfo;
   std::vector<InstanceInfo> instances_info;
   for (const auto& instance : per_instance_info) {
-    InstanceInfo info{.name = instance.per_instance_name_,
-                      .id = instance.instance_id_};
+    InstanceInfo info{.id = instance.instance_id_,
+                      .name = instance.per_instance_name_};
     instances_info.push_back(info);
   }
   auto result = instance_db.AddInstances(group_name, instances_info);
